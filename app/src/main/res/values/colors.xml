@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#d2696a</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#D4B16A</color>
+    <color name="colorAccentDark">#018786</color>
+    <color name="buttonColorStartGame">#ffffff</color>
+    <color name="textStartGame">#D4B16A</color>
+</resources>
