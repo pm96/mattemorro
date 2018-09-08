@@ -24,7 +24,7 @@ public class GameActivity extends AppCompatActivity {
         String randomStr = array[new Random().nextInt(array.length)];
         regnestykke = (TextView)findViewById(R.id.regnestykke);
         regnestykke.setText(randomStr);
-        en = (TextView)findViewById(R.id.button);
+        en = (TextView)findViewById(R.id.en);
         svar = (TextView)findViewById(R.id.svarPaaRegnestykke);
         en.setOnClickListener(new View.OnClickListener() {
             @Override

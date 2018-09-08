@@ -6,6 +6,19 @@
     <string name="preferanser">preferanser</string>
     <string name="svar">ditt svar</string>
 
+    <string name="ingenting">0</string>
+    <string name="en">1</string>
+    <string name="to">2</string>
+    <string name="tre">3</string>
+    <string name="fire">4</string>
+    <string name="fem">5</string>
+    <string name="seks">6</string>
+    <string name="syv">7</string>
+    <string name="åtte">8</string>
+    <string name="ni">9</string>
+    <string name="tilbake">&amp;-</string>
+    <string name="erLik">=</string>
+
     <string-array name="regnestykker">
         <item>19+3</item>
         <item>19+2</item>
