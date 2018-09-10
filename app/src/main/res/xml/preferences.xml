@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/kategoriSpørsmål">
+        <CheckBoxPreference
+            android:title="5 spørsmål"
+            android:defaultValue="true"
+            android:key="femSpørsmål"/>
+        <CheckBoxPreference
+            android:title="10 spørsmål"
+            android:defaultValue="false"
+            android:key="tiSpørsmål"/>
+        <CheckBoxPreference
+            android:title="25 spørsmål"
+            android:defaultValue="false"
+            android:key="tjueFemSpørsmål"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/kategoriSpråk">
+        <CheckBoxPreference
+            android:title="norsk"
+            android:defaultValue="true"
+            android:key="språkNorsk" />
+        <CheckBoxPreference
+            android:title="tysk"
+            android:defaultValue="false"
+            android:key="språkTysk"/>
+    </PreferenceCategory>
+</PreferenceScreen>

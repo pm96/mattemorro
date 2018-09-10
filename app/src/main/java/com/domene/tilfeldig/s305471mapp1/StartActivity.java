@@ -1,9 +1,6 @@
 package com.domene.tilfeldig.s305471mapp1;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -14,8 +11,6 @@ import android.view.animation.AnimationSet;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.util.Locale;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -29,14 +24,20 @@ public class StartActivity extends AppCompatActivity {
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions); //fjerner status bar
         startAnimation(this);
-        startKnapp = (TextView) findViewById(R.id.start_spill);
+        startKnapp = findViewById(R.id.startSpill);
+        preferanser = findViewById(R.id.preferanser);
         startKnapp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goToGame();
             }
         });
-
+        preferanser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToPreferences();
+            }
+        });
     }
 
     @Override
@@ -50,6 +51,11 @@ public class StartActivity extends AppCompatActivity {
 
     public void goToGame(){
         Intent intent = new Intent(this, GameActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToPreferences(){
+        Intent intent = new Intent(this, SetPreferencesActivity.class);
         startActivity(intent);
     }
 
@@ -72,29 +78,7 @@ public class StartActivity extends AppCompatActivity {
 
     }
 
-    public void tysk(View v){
-        String language = "de";
-        Context context = getApplicationContext();
-        Locale locale = new Locale(language);
-        locale.setDefault(locale);
-        Resources res = context.getResources();
-        Configuration configuration = new Configuration(res.getConfiguration());
-        configuration.locale = locale;
-        res.updateConfiguration(configuration, res.getDisplayMetrics());
-        recreate();
-    }
 
-    public void norsk(View v){
-        String language= "no";
-        Context context = getApplicationContext();
-        Locale locale = new Locale(language);
-        locale.setDefault(locale);
-        Resources res = context.getResources();
-        Configuration configuration = new Configuration(res.getConfiguration());
-        configuration.locale = locale;
-        res.updateConfiguration(configuration, res.getDisplayMetrics());
-        recreate();
-    }
     
 
     

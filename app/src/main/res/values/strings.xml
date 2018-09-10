@@ -5,6 +5,9 @@
     <string name="statistikk">statistikk</string>
     <string name="preferanser">preferanser</string>
     <string name="svar">ditt svar</string>
+    <string name="kategoriSpørsmål">Om spørsmål</string>
+    <string name="kategoriSpråk">Om språk</string>
+    <string name="velgAntallSpørsmål">Velg antall spørsmål</string>
 
     <string name="ingenting">0</string>
     <string name="en">1</string>
