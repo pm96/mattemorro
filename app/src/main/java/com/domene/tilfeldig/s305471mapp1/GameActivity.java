@@ -1,12 +1,14 @@
 package com.domene.tilfeldig.s305471mapp1;
 
+import android.animation.ArgbEvaluator;
+import android.animation.ValueAnimator;
 import android.app.Activity;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.Random;
 
@@ -14,6 +16,7 @@ public class GameActivity extends Activity {
 
     TextView regnestykke, svar, en,to,tre,fire,fem,seks,syv,åtte,ni,svarPaaSpoersmaal, ingenting, tilbake;
     int currProblem = 0;
+    View strek;
     String[] arraySvar;
     String[] arraySpm;
     int[] arrayPos;
@@ -44,6 +47,7 @@ public class GameActivity extends Activity {
         tilbake = findViewById(R.id.tilbake);
         svarPaaSpoersmaal = findViewById(R.id.svarPaaRegnestykke);
         svar = findViewById(R.id.svar);
+        strek = findViewById(R.id.strek);
         updateTextview();
 
         en.setOnClickListener(new View.OnClickListener() {
@@ -180,11 +184,47 @@ public class GameActivity extends Activity {
         String svar = svarPaaSpoersmaal.getText().toString();
          Log.d("sjekksvar", arraySvar[arrayPos[currProblem]]+","+svar);
         if (svar.equals(arraySvar[arrayPos[currProblem]])){
-            Toast.makeText(this, "YAY", Toast.LENGTH_SHORT).show();
+            riktigSvar();
             nextQuestion();
         }else {
-            Toast.makeText(this, "NAY", Toast.LENGTH_SHORT).show();
+            svarPaaSpoersmaal.setText(R.string.feil);
+            galtSvar();
         }
      }
+
+     public void riktigSvar(){
+         int cF = ((ColorDrawable)strek.getBackground()).getColor();
+         int colorTo = getResources().getColor(R.color.fullGrønn);
+         ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), cF, colorTo);
+         colorAnimation.setDuration(1000); // milliseconds
+         colorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+             @Override
+             public void onAnimationUpdate(ValueAnimator animator) {
+                 strek.setBackgroundColor((int) animator.getAnimatedValue());
+                 strek.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(),R.anim.shake));
+             }
+
+         });
+
+         colorAnimation.start();
+     }
+    public void galtSvar(){
+        int cF = ((ColorDrawable)strek.getBackground()).getColor();
+        int colorTo = getResources().getColor(R.color.fullRød);
+        ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), cF, colorTo);
+        colorAnimation.setDuration(1000); // milliseconds
+        colorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+            @Override
+            public void onAnimationUpdate(ValueAnimator animator) {
+                strek.setBackgroundColor((int) animator.getAnimatedValue());
+                strek.startAnimation(AnimationUtils.loadAnimation(getApplicationContext(),R.anim.shake));
+            }
+
+        });
+
+        colorAnimation.start();
+    }
 
 }

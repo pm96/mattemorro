@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginTop="16dp"
         android:text="@android:string/yes"
         android:textColor="@color/buttonColorStartGame"
         android:textSize="45sp"
@@ -55,7 +55,7 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/knapper"
         android:layout_width="fill_parent"
-        android:layout_height="260dp"
+        android:layout_height="179dp"
         android:layout_alignParentLeft="true"
         android:layout_weight="1"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -236,16 +236,10 @@
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline2"
+        android:id="@+id/guideline8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.33" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.66" />
 
-    <android.support.constraint.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="254dp" />
 </android.support.constraint.ConstraintLayout>

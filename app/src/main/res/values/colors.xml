@@ -7,4 +7,7 @@
     <color name="buttonColorStartGame">#ffffff</color>
     <color name="textStartGame">#D4B16A</color>
     <color name="grey">#565656</color>
+    <color name="fullGrønn">#FF62FF00</color>
+    <color name="fullRød">#FFFF0011</color>
+
 </resources>

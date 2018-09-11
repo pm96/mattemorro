@@ -1,17 +1,17 @@
 <resources>
     <string name="app_name">S305471mappe1</string>
-    <string name="tittel">MATTEMORRO</string>
-    <string name="start_spill">start spill</string>
-    <string name="statistikk">statistikk</string>
-    <string name="preferanser">preferanser</string>
-    <string name="svar">ditt svar</string>
-    <string name="kategoriSpråk">Velg ditt språk</string>
-    <string name="velgAntallSpørsmål">Velg antall spørsmål</string>
+    <string name="tittel">Mathematik Spaß</string>
+    <string name="start_spill">Spiel starten</string>
+    <string name="statistikk">Statistiken</string>
+    <string name="preferanser">Vorlieben</string>
+    <string name="svar">deine Antwort</string>
+    <string name="kategoriSpråk">Wählen Sie Ihre Sprache</string>
+    <string name="velgAntallSpørsmål">Wählen Sie die Anzahl der Fragen</string>
     <string name="norsk">Norsk</string>
-    <string name="tysk">Deutch</string>
-    <string name="femSpm">5 spørsmål</string>
-    <string name="tiSpm">10 spørsmål</string>
-    <string name="tjueFemSpm">25 spørsmål</string>
+    <string name="tysk">Deutsch</string>
+    <string name="femSpm">5 Fragen</string>
+    <string name="tiSpm">10 Fragen</string>
+    <string name="tjueFemSpm">25 Fragen</string>
     <string name="feil">whoops</string>
 
     <string name="ingenting">0</string>

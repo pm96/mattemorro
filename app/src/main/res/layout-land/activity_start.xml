@@ -20,7 +20,7 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="134dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -30,36 +30,45 @@
 
         <TextView
             android:id="@+id/statistikk"
-            android:layout_width="186dp"
-            android:layout_height="163dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toStartOf="@+id/textView2"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/preferanser"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/startSpill"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/button_with_border"/>
 
         <TextView
-            android:id="@+id/textView2"
-            android:layout_width="187dp"
-            android:layout_height="163dp"
+            android:id="@+id/startSpill"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toStartOf="@+id/textView3"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/start_spill"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/preferanser"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/statistikk"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/button_with_border"/>
 
         <TextView
-            android:id="@+id/textView3"
-            android:layout_width="187dp"
-            android:layout_height="163dp"
+            android:id="@+id/preferanser"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="@string/statistikk"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/textView2"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintStart_toEndOf="@+id/startSpill"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/button_with_border"/>
     </android.support.constraint.ConstraintLayout>
 
     <ImageView
@@ -78,7 +87,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="@string/tittel"
+        android:textColor="@color/buttonColorStartGame"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
