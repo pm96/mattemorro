@@ -1,8 +1,12 @@
 package com.domene.tilfeldig.s305471mapp1;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
@@ -12,7 +16,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class StartActivity extends AppCompatActivity {
+public class StartActivity extends Activity {
 
     TextView startKnapp, statistikk, preferanser;
 
@@ -26,6 +30,7 @@ public class StartActivity extends AppCompatActivity {
         startAnimation(this);
         startKnapp = findViewById(R.id.startSpill);
         preferanser = findViewById(R.id.preferanser);
+        statistikk = findViewById(R.id.statistikk);
         startKnapp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,6 +43,21 @@ public class StartActivity extends AppCompatActivity {
                 goToPreferences();
             }
         });
+        statistikk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToStatistikk();
+            }
+        });
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        try{
+            String s = prefs.getString("språkNorsk","funkaKje");
+            if(s == s ){
+                Log.d("hm", "onCreate: " + s);
+            }
+        }catch (ClassCastException cce){
+            Log.d("SA", "onCreate: ClassCastException");
+        }
     }
 
     @Override
@@ -55,8 +75,13 @@ public class StartActivity extends AppCompatActivity {
     }
 
     public void goToPreferences(){
-        Intent intent = new Intent(this, SetPreferencesActivity.class);
+        Intent intent = new Intent(this, PreferencesActivity.class);
         startActivity(intent);
+    }
+
+    public void goToStatistikk(){
+        //Intent i = new Intent(this, PrefsFragment.class);
+        //startActivity(i);
     }
 
     public void startAnimation(StartActivity view){
