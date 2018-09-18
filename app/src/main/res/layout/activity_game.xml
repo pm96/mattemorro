@@ -33,8 +33,8 @@
         android:layout_marginStart="8dp"
         android:gravity="center"
         android:hint="@string/svar"
+        android:textColorHint="@color/greyFaded"
         android:textColor="@color/buttonColorStartGame"
-        android:textColorHint="@color/buttonColorStartGame"
         android:textSize="35sp"
         app:layout_constraintBottom_toTopOf="@+id/knapper"
         app:layout_constraintEnd_toEndOf="parent"
@@ -236,16 +236,46 @@
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.33" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="254dp" />
+
+    <TextView
+        android:id="@+id/numRightTilNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:layout_constraintEnd_toStartOf="@+id/numWrongTilNow"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/numWrongTilNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/numRightTilNow"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50088185" />
 </android.support.constraint.ConstraintLayout>

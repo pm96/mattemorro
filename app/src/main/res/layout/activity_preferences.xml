@@ -28,14 +28,13 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <TextView
-        android:id="@+id/Innstillinger"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/statistikk"
+        android:text="@string/preferanser"
         android:textColor="@color/buttonColorStartGame"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/space2"
@@ -54,10 +53,10 @@
         app:layout_constraintTop_toTopOf="@+id/guideline5">
 
         <TextView
-            android:id="@+id/spørsmålTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:maxWidth="150dp"
             android:text="@string/velgAntallSpørsmål"
             android:textColor="@color/buttonColorStartGame"
             android:textSize="16sp" />
@@ -67,7 +66,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:checked="true"
             android:text="@string/femSpm" />
 
         <RadioButton
@@ -86,7 +84,6 @@
     </RadioGroup>
 
     <RadioGroup
-        android:id="@+id/radioGroup"
         android:layout_width="wrap_content"
         android:layout_height="89dp"
         android:layout_marginEnd="8dp"
@@ -97,11 +94,11 @@
         app:layout_constraintTop_toTopOf="@+id/guideline5">
 
         <TextView
-            android:id="@+id/SpråkRadioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:maxWidth="150dp"
             android:text="@string/kategoriSpråk"
             android:textColor="@color/buttonColorStartGame"
             android:textSize="16sp" />
@@ -132,7 +129,6 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

@@ -1,53 +1,33 @@
 package com.domene.tilfeldig.s305471mapp1;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.animation.AccelerateInterpolator;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.DecelerateInterpolator;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.Locale;
 
 public class StartActivity extends Activity {
 
-    TextView startKnapp, statistikk, preferanser;
-    int counter;
+    private TextView startBtn, statisticsBtn, preferencesBtn;
+    private SharedPreferences sf;
+    private SharedPreferences.Editor editor;
+    private static final String LANG_KEY = "språk";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        prepareSharedPreferences();
+        setLanguageToNorwegian_NO_RECREATE();
+        setLanguageToGerman_NO_RECREATE();
         setContentView(R.layout.activity_start);
-        View decorView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility(uiOptions); //fjerner status bar
-        //startAnimation(this);
-        startKnapp = findViewById(R.id.startSpill);
-        preferanser = findViewById(R.id.preferanser);
-        statistikk = findViewById(R.id.statistikk);
-        startKnapp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToGame();
-            }
-        });
-        preferanser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToPreferences();
-            }
-        });
-        statistikk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                goToStatistikk();
-            }
-        });
-            counter = getIntent().getIntExtra("Counter", 5);
-            Log.d("GETINTENT", "onCreate: " + counter);
+        hideStatusBar();
+        setTextViewIDs();
+        setOnClickListenerToTextViews();
     }
 
     @Override
@@ -56,47 +36,84 @@ public class StartActivity extends Activity {
         View decorView = getWindow().getDecorView();
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
+        setLanguageToNorwegian_NO_RECREATE();
+        setLanguageToGerman_NO_RECREATE();
     }
-
-
-    public void goToGame(){
+    private void goToGame(){
         Intent intent = new Intent(this, GameActivity.class);
-        intent.putExtra("antSpm", counter);
         startActivity(intent);
+        finish();
     }
-
-    public void goToPreferences(){
+    private void goToPreferences(){
         Intent intent = new Intent(this, PreferencesActivity.class);
         startActivity(intent);
+        finish();
     }
-
-    public void goToStatistikk(){
-        //Intent i = new Intent(this, PrefsFragment.class);
-        //startActivity(i);
-        //TODO: fikse
-    }
-
-    public void startAnimation(StartActivity view){
-        ImageView logo = (ImageView)findViewById(R.id.logo);
-
-        Animation fadeIn = new AlphaAnimation(0,1);
-        fadeIn.setInterpolator(new DecelerateInterpolator());
-        fadeIn.setDuration(1000);
-
-        Animation fadeOut = new AlphaAnimation(1,0);
-        fadeOut.setInterpolator(new AccelerateInterpolator());
-        fadeOut.setStartOffset(1000);
-        fadeOut.setDuration(1000);
-
-        AnimationSet animation = new AnimationSet(false);
-        animation.addAnimation(fadeIn);
-        animation.addAnimation(fadeOut);
-        logo.setAnimation(animation);
+    private void goToStatistikk(){
+        Intent i = new Intent(this, StatistikkActivity.class);
+        startActivity(i);
+        finish();
 
     }
+    private void prepareSharedPreferences(){
+        sf = getSharedPreferences("preferences", Context.MODE_PRIVATE);
+        editor = sf.edit();
+    }
+    private void setLanguageToNorwegian_NO_RECREATE(){
+        if(sf.getString(LANG_KEY,"").equals("no")){
+            editor.putString(LANG_KEY, "no").apply();
+            String lang = "no";
+            Context c = getApplicationContext();
+            Locale l = new Locale(lang);
+            Locale.setDefault(l);
+            Resources res = c.getResources();
+            Configuration conf = new Configuration(res.getConfiguration());
+            conf.locale = l;
+            res.updateConfiguration(conf, res.getDisplayMetrics());
+        }
+    }
+    private void setLanguageToGerman_NO_RECREATE(){
+        if(sf.getString(LANG_KEY,"").equals("de")){
+            editor.putString(LANG_KEY, "de").apply();
+            String lang = "de";
+            Context c = getApplicationContext();
+            Locale l = new Locale(lang);
+            Locale.setDefault(l);
+            Resources res = c.getResources();
+            Configuration conf = new Configuration(res.getConfiguration());
+            conf.locale = l;
+            res.updateConfiguration(conf, res.getDisplayMetrics());
+        }
+    }
+    private void hideStatusBar(){
+        View decorView = getWindow().getDecorView();
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions); //fjerner status bar
+    }
+    private void setTextViewIDs(){
+        startBtn = findViewById(R.id.startSpill);
+        preferencesBtn = findViewById(R.id.preferanser);
+        statisticsBtn = findViewById(R.id.statistikk);
+    }
+    private void setOnClickListenerToTextViews(){
+        startBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToGame();
+            }
+        });
+        preferencesBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToPreferences();
+            }
+        });
+        statisticsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToStatistikk();
+            }
+        });
+    }
 
-
-    
-
-    
 }

@@ -3,10 +3,9 @@
     <color name="colorPrimary">#d2696a</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#D4B16A</color>
-    <color name="colorAccentDark">#018786</color>
     <color name="buttonColorStartGame">#ffffff</color>
-    <color name="textStartGame">#D4B16A</color>
-    <color name="grey">#565656</color>
+    <color name="grey" >#6b6b6b</color>
+    <color name="greyFaded">#55FFFFFF</color>
     <color name="fullGrønn">#FF62FF00</color>
     <color name="fullRød">#FFFF0011</color>
 
